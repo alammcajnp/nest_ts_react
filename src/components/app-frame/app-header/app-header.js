@@ -18,7 +18,9 @@ class AppHeader extends Component {
     handleLogout = () => {
         CookieService.remove(CookieKeys.User)
         CookieService.remove(CookieKeys.AccessToken)
-        new Action({context: this}).updateUser(null)
+        new Action({ context: this }).updateUser(null);
+        this.props.history.push("/login");
+
     }
 
     handleMenuActive = (close) => {

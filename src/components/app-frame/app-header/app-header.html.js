@@ -2,7 +2,9 @@ import React from 'react';
 import {Link, NavLink} from "react-router-dom";
 
 export function html() {
-
+    const {handleDropdown, handleMenuActive, handleLogout} = this;
+    const {scroll, menuActive, activeIndex} = this.state;
+    const { location, user } = this.props;
     return (
            
     <header id="header" className="header d-flex align-items-center">
@@ -36,8 +38,17 @@ export function html() {
               <li><a href="#">Dropdown 3</a></li>
               <li><a href="#">Dropdown 4</a></li>
             </ul>
-          </li>
-          <li><Link to={'/login'}>Login</Link></li>
+            </li>
+              
+              
+              {user
+                        ? 
+                        <li onClick={handleLogout}>
+                            Logout
+                        </li>
+                        : <li><Link to={'/login'}>Login</Link></li>
+                    }
+              
               
         </ul>
       </nav>

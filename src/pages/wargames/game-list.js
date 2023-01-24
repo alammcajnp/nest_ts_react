@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom";
 
 const GameList = ({games, selectedGame}) => {
 
-    const history = useHistory()
+    const history = useHistory();
     const handleClick = (game) => {
         history.push(`/wargames/${game.slug}`)
     }
